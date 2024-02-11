@@ -1,28 +1,50 @@
 *** Settings ***
-Documentation    To Validate the login form
-Library    SeleniumLibrary
+Documentation   To validate the Login form
+Library     SeleniumLibrary
+Test Teardown   Close Browser
+
+
+*** Variables ***
+${Error_Message_Login}      css:.alert-danger
+
 
 *** Test Cases ***
-Validate UnSuccessful Login
-    open the Browser with Login screen
-    fill the login form
+Validate UnSuccesful Login
+    open the browser with the Mortgage payment url
+    Fill the login Form
     wait until it checks and display error message
     verify error message is correct
 
 *** Keywords ***
-open the Browser with Login screen
-    Create Webdriver    Chrome
-    Go To    https://rahulshettyacademy.com/loginpagePractise/
+open the browser with the Mortgage payment url
+    Create Webdriver    Chrome  #executable_path=C:\Users\02063D744\AppData\Local\SeleniumBasic
+    Go To   https://rahulshettyacademy.com/loginpagePractise/
 
-fill the login form
-    Input Text    id:username    rajeshbedse
-    Input Password    id:password    132465
-    Select Checkbox    id:terms
-    Click Button    signInBtn
+Fill the login Form
+    Input Text          id:username     rajeshbedse
+    Input Password      id:password     12345678
+    Click Button        signInBtn
 
 wait until it checks and display error message
-    Wait Until Element Is Visible    css:.alert-danger
+    Wait Until Element Is Visible       ${Error_Message_Login}
 
 verify error message is correct
-    ${alertText}=    Get Text    css:.alert-danger
-    Should Be Equal As Strings    ${alertText}    Incorrect username/password.
+   ${result}=   Get Text    ${Error_Message_Login}
+   Should Be Equal As Strings     ${result}     Incorrect username/password.
+   Element Text Should Be       ${Error_Message_Login}      Incorrect username/password.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

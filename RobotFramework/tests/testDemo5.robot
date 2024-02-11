@@ -1,31 +1,56 @@
 *** Settings ***
-Documentation    To Validate the login form
-Library    SeleniumLibrary
-Documentation    To Connect and read csv file
-Library    SeleniumLibrary
-Library    DataDriver    file=
+Documentation   To validate the Login form
+Library     SeleniumLibrary
+Library     DataDriver      file=resources/data.csv     encoding=utf_8   dialect=unix
+Test Teardown   Close Browser
+Test Template   Validate UnSuccesful Login
+
+
+*** Variables ***
+${Error_Message_Login}      css:.alert-danger
 
 *** Test Cases ***
-Validate UnSuccessful Login
-    open the Browser with Login screen
-    fill the login form
+Login with user ${username} and password ${password}        xyc     123456
+
+
+*** Keywords ***
+Validate UnSuccesful Login
+    [Arguments]     ${username}     ${password}
+    open the browser with the Mortgage payment url
+    Fill the login Form    ${username}      ${password}
     wait until it checks and display error message
     verify error message is correct
 
-*** Keywords ***
-open the Browser with Login screen
-    Create Webdriver    Chrome
-    Go To    https://rahulshettyacademy.com/loginpagePractise/
+open the browser with the Mortgage payment url
+    Create Webdriver    Chrome  #executable_path=/Users/rahulshetty/Documents/chromedriver
+    Go To   https://rahulshettyacademy.com/loginpagePractise/
 
-fill the login form
-    Input Text    id:username    rajeshbedse
-    Input Password    id:password    132465
-    Select Checkbox    id:terms
-    Click Button    signInBtn
+Fill the login Form
+    [arguments]     ${username}     ${password}
+    Input Text          id:username     ${username}
+    Input Password      id:password     ${password}
+    Click Button        signInBtn
 
 wait until it checks and display error message
-    Wait Until Element Is Visible    css:.alert-danger
+    Wait Until Element Is Visible       ${Error_Message_Login}
 
 verify error message is correct
-    ${alertText}=    Get Text    css:.alert-danger
-    Should Be Equal As Strings    ${alertText}    Incorrect username/password.
+   ${result}=   Get Text    ${Error_Message_Login}
+   Should Be Equal As Strings     ${result}     Incorrect username/password.
+   Element Text Should Be       ${Error_Message_Login}      Incorrect username/password.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

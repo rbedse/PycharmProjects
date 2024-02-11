@@ -1,91 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-02-09T22:35:18.463313" rpa="false" schemaversion="5">
-<suite id="s1" name="testDemo1" source="C:\Users\02063D744\PycharmProjects\RobotFramework\tests\testDemo1.robot">
-<test id="s1-t1" name="Validate UnSuccessful Login" line="6">
-<kw name="open the Browser with Login screen">
-<kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2024-02-09T22:35:18.656014" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<arg>Chrome</arg>
-<doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2024-02-09T22:35:18.656014" elapsed="1.751001"/>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-02-11T09:40:57.025045" rpa="false" schemaversion="5">
+<suite id="s1" name="testDemo7" source="C:\Users\02063D744\PycharmProjects\RobotFramework\tests\testDemo7.robot">
+<test id="s1-t1" name="Play around with Dictinoary" line="11">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-02-11T09:40:57.057277" level="INFO">&amp;{data} = { name=rahulshetty | course=robot | website=rahulshettyacademy.com }</msg>
+<var>&amp;{data}</var>
+<arg>name=rahulshetty</arg>
+<arg>course=robot</arg>
+<arg>website=rahulshettyacademy.com</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-02-11T09:40:57.056245" elapsed="0.001032"/>
 </kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-02-09T22:35:20.407015" level="INFO">Opening url 'https://rahulshettyacademy.com/loginpagePractise/'</msg>
-<arg>https://rahulshettyacademy.com/loginpagePractise/</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-02-09T22:35:20.407015" elapsed="0.358102"/>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-11T09:40:57.058295" level="INFO">{'name': 'rahulshetty', 'course': 'robot', 'website': 'rahulshettyacademy.com'}</msg>
+<arg>${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-11T09:40:57.058295" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-02-09T22:35:18.655007" elapsed="2.110110"/>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<msg time="2024-02-11T09:40:57.058295" level="INFO">False</msg>
+<arg>${data}</arg>
+<arg>name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2024-02-11T09:40:57.058295" elapsed="0.000000"/>
 </kw>
-<kw name="fill the login form">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-02-09T22:35:20.767130" level="INFO">Typing text 'rajeshbedse' into text field 'id:username'.</msg>
-<arg>id:username</arg>
-<arg>rajeshbedse</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-02-09T22:35:20.767130" elapsed="0.087813"/>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-11T09:40:57.059316" level="INFO">rahulshetty</msg>
+<arg>${data}[name]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-11T09:40:57.059316" elapsed="0.000000"/>
 </kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2024-02-09T22:35:20.854943" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2024-02-09T22:35:20.884796" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>id:password</arg>
-<arg>132465</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-02-09T22:35:20.854943" elapsed="0.066968"/>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-02-11T09:40:57.059316" level="INFO">${url} = rahulshettyacademy.com</msg>
+<var>${url}</var>
+<arg>${data}</arg>
+<arg>website</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-02-11T09:40:57.059316" elapsed="0.001058"/>
 </kw>
-<kw name="Select Checkbox" owner="SeleniumLibrary">
-<msg time="2024-02-09T22:35:20.921911" level="INFO">Selecting checkbox 'id:terms'.</msg>
-<arg>id:terms</arg>
-<doc>Selects the checkbox identified by ``locator``.</doc>
-<status status="PASS" start="2024-02-09T22:35:20.921911" elapsed="0.063240"/>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-11T09:40:57.060374" level="INFO">rahulshettyacademy.com</msg>
+<arg>${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-11T09:40:57.060374" elapsed="0.000000"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-02-09T22:35:20.986180" level="INFO">Clicking button 'signInBtn'.</msg>
-<arg>signInBtn</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-02-09T22:35:20.986180" elapsed="0.046708"/>
+<tag>API</tag>
+<status status="PASS" start="2024-02-11T09:40:57.056245" elapsed="0.004129"/>
+</test>
+<test id="s1-t2" name="Add Book into Library DataBase" line="21">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-02-11T09:40:57.062580" level="INFO">&amp;{req_body} = { name=RobotFramework | isbn=947303 | aisle=324534 | author=rahulshetty }</msg>
+<var>&amp;{req_body}</var>
+<arg>name=${book_name}</arg>
+<arg>isbn=947303</arg>
+<arg>aisle=324534</arg>
+<arg>author=rahulshetty</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-02-11T09:40:57.062580" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-02-09T22:35:20.766118" elapsed="0.266770"/>
+<kw name="POST">
+<msg time="2024-02-11T09:40:57.063655" level="FAIL">No keyword with name 'POST' found.</msg>
+<var>${response}</var>
+<arg>${base_url}/Library/Addbook.php</arg>
+<arg>json=${req_body}</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2024-02-11T09:40:57.063655" elapsed="0.000000">No keyword with name 'POST' found.</status>
 </kw>
-<kw name="wait until it checks and display error message">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>css:.alert-danger</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-02-09T22:35:21.033922" elapsed="2.102363"/>
+<kw name="Log" owner="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-11T09:40:57.063655" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-02-09T22:35:21.033393" elapsed="2.102892"/>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${response.json()}</arg>
+<arg>ID</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="NOT RUN" start="2024-02-11T09:40:57.064702" elapsed="0.000000"/>
 </kw>
-<kw name="verify error message is correct">
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2024-02-09T22:35:23.159971" level="INFO">${alertText} = Incorrect username/password.</msg>
-<var>${alertText}</var>
-<arg>css:.alert-danger</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-02-09T22:35:23.136905" elapsed="0.023066"/>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${book_id}</var>
+<arg>${response.json()}</arg>
+<arg>ID</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-02-11T09:40:57.064702" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<arg>${book_id}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" start="2024-02-11T09:40:57.065744" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${book_id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-11T09:40:57.065744" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${alertText}</arg>
-<arg>Incorrect username/password.</arg>
+<arg>successfully added</arg>
+<arg>${response.json()}[Msg]</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-02-09T22:35:23.159971" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-02-11T09:40:57.066887" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-02-09T22:35:23.136905" elapsed="0.023066"/>
+<kw name="status should be">
+<arg>200</arg>
+<arg>${response}</arg>
+<status status="NOT RUN" start="2024-02-11T09:40:57.068026" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-02-09T22:35:18.655007" elapsed="4.506023"/>
+<tag>API</tag>
+<status status="FAIL" start="2024-02-11T09:40:57.061476" elapsed="0.006550">No keyword with name 'POST' found.</status>
 </test>
-<doc>To Validate the login form</doc>
-<status status="PASS" start="2024-02-09T22:35:18.466981" elapsed="4.694993"/>
+<test id="s1-t3" name="Get the Book Details which got added" line="33">
+<kw name="GET">
+<msg time="2024-02-11T09:40:57.070040" level="FAIL">No keyword with name 'GET' found. Did you mean:
+    BuiltIn.Get Time</msg>
+<var>${get_response}</var>
+<arg>${base_url}/Library/GetBook.php</arg>
+<arg>params=ID=${book_id}</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2024-02-11T09:40:57.070040" elapsed="0.000000">No keyword with name 'GET' found. Did you mean:
+    BuiltIn.Get Time</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${get_response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-11T09:40:57.071154" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${book_name}</arg>
+<arg>${get_response.json()}[0][book_name]</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2024-02-11T09:40:57.071154" elapsed="0.000000"/>
+</kw>
+<tag>API</tag>
+<status status="FAIL" start="2024-02-11T09:40:57.070040" elapsed="0.002147">No keyword with name 'GET' found. Did you mean:
+    BuiltIn.Get Time</status>
+</test>
+<test id="s1-t4" name="Delete the Book from database" line="40">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-02-11T09:40:57.073281" level="INFO">&amp;{delete_req} = { ID= }</msg>
+<var>&amp;{delete_req}</var>
+<arg>ID=${book_id}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-02-11T09:40:57.073281" elapsed="0.000000"/>
+</kw>
+<kw name="POST">
+<msg time="2024-02-11T09:40:57.074306" level="FAIL">No keyword with name 'POST' found.</msg>
+<var>${delete_resp}</var>
+<arg>${base_url}/Library/DeleteBook.php</arg>
+<arg>json=${delete_req}</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2024-02-11T09:40:57.074306" elapsed="0.000000">No keyword with name 'POST' found.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${delete_resp.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-11T09:40:57.075397" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>book is successfully deleted</arg>
+<arg>${delete_resp.json()}[msg]</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2024-02-11T09:40:57.075397" elapsed="0.000000"/>
+</kw>
+<tag>API</tag>
+<status status="FAIL" start="2024-02-11T09:40:57.073281" elapsed="0.002116">No keyword with name 'POST' found.</status>
+</test>
+<status status="FAIL" start="2024-02-11T09:40:57.026341" elapsed="0.051088"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="3" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="3" skip="0">API</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="testDemo1">testDemo1</stat>
+<stat pass="1" fail="3" skip="0" id="s1" name="testDemo7">testDemo7</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2024-02-11T09:40:57.054072" level="ERROR">Error in file 'C:\Users\02063D744\PycharmProjects\RobotFramework\tests\testDemo7.robot' on line 3: Importing library 'RequestsLibrary' failed: ModuleNotFoundError: No module named 'RequestsLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\02063D744\AppData\Local\Programs\Python\Python312\Scripts\robot.exe
+  C:\Users\02063D744\AppData\Local\Programs\Python\Python312\python312.zip
+  C:\Users\02063D744\AppData\Local\Programs\Python\Python312\DLLs
+  C:\Users\02063D744\AppData\Local\Programs\Python\Python312\Lib
+  C:\Users\02063D744\AppData\Local\Programs\Python\Python312
+  C:\Users\02063D744\AppData\Local\Programs\Python\Python312\Lib\site-packages</msg>
 </errors>
 </robot>
